@@ -1,0 +1,8 @@
+services:
+  scanner:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: security_scanner
+    # environment:
+    #   - REPO_URL=https://github.com/user/repo
