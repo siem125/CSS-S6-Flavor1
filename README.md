@@ -29,12 +29,9 @@ Copy the .env.example and save as .env.local, change the github token to your pe
 ## 2. Linking a repository
 2.1 Setup webhook
 - Go to the specific repository -> settings -> webhooks -> add webhook
-- Paste this in the webhook(the link should be changed to either ngrok result or self hosting this project)
-Payload URL:
-https://(link)/webhook
-
-Content type:
-application/json
+- Webhook settings:
+1. Payload URL:     https://(link from ngrok)/webhook
+2. Content type:    application/json
 
 
 2.2 Enable blocking in the repo
