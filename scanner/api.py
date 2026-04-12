@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from scanner.service import run_scan
+from scanner.github import set_commit_status
 
 app = FastAPI()
 
@@ -25,6 +26,7 @@ async def github_webhook(request: Request):
         return {"status": "ignored"}
 
     repo_url = payload["repository"]["clone_url"]
+    repo_name = payload["repository"]["full_name"]
 
     # Extract commit SHA
     if event == "push":
@@ -33,6 +35,10 @@ async def github_webhook(request: Request):
         sha = payload["pull_request"]["head"]["sha"]
 
     result = run_scan(repo_url)
+
+    state = "failure" if result["block"] else "success"
+
+    set_commit_status(repo_name, sha, state)
 
     return {
         "event": event,
