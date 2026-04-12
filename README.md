@@ -35,4 +35,13 @@ Copy the .env.example and save as .env.local, change the github token to your pe
 
 
 2.2 Enable blocking in the repo(currently in progress)
-- go to specific repository -> settings -> Banches -> add branch ruleset
+- IMPORTANT NOTE: for branch protection rules/rulesets enforcement being locked behind github teams(paying) the repo's where you want to apply the status blocking have to be public unless you want to pay for the team version($4 per user per repo) then it could be private
+
+- go to specific repository -> settings -> rules -> rulesets -> new ruleset
+1. name: Security-Scan-Pass(or something else if you want)
+2. Enforcement status: Active
+3. Target branches: add target->All branches
+4. Branch rules:
+- Restrict deletions
+- Require status checks to pass: add checks -> "security-scan"
+- Block force pushes
