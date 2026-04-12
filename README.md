@@ -34,5 +34,5 @@ Copy the .env.example and save as .env.local, change the github token to your pe
 2. Content type:    application/json
 
 
-2.2 Enable blocking in the repo
+2.2 Enable blocking in the repo(currently in progress)
 - go to specific repository -> settings -> Banches -> add branch ruleset

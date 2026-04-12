@@ -34,15 +34,34 @@ async def github_webhook(request: Request):
     else:
         sha = payload["pull_request"]["head"]["sha"]
 
-    result = run_scan(repo_url)
+    #Show extracted data
+    print("Incoming event:", event)
+    print("Repo:", repo_name)
+    print("SHA:", sha)
 
-    state = "failure" if result["block"] else "success"
+    #Scan error handling
+    try:
+        #set initial commit status to pending
+        set_commit_status(repo_name, sha, "pending")
 
-    set_commit_status(repo_name, sha, state)
+        result = run_scan(repo_url)
+
+        state = "failure" if result["block"] else "success"
+
+    except Exception as e:
+        print("SCAN ERROR:", e)
+
+        result = {"error": str(e)}
+        state = "failure"
+
+    #update the commit status to the result(or if error fail it)
+    response = set_commit_status(repo_name, sha, state)
+    print("GitHub response:", response)
 
     return {
         "event": event,
         "repo": repo_url,
         "sha": sha,
-        "result": result
+        "result": result,
+        "state": state
     }
