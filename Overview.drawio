@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="First prototype working" id="NnLWoJ6m5bZHVJbT19KR">
-        <mxGraphModel dx="1123" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="751" dy="487" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -59,6 +59,113 @@
                 </mxCell>
                 <mxCell id="Npx3lpX6P1RNfHPbBpDS-16" value="return result and remove repo" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="500" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="ZTlXj3L1FcWNyBTi_7gJ" name="Webhook">
+        <mxGraphModel dx="884" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-18" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry y="320" width="850" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-19" value="OPTION 2: Self hosted runner" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8zmF9D3CeJAeMPqckKy7-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry width="850" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="D9rC3qTbJY6AdF8t-pWG-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="D9rC3qTbJY6AdF8t-pWG-2" target="D9rC3qTbJY6AdF8t-pWG-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="D9rC3qTbJY6AdF8t-pWG-18" value="Webhook" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="D9rC3qTbJY6AdF8t-pWG-1">
+                    <mxGeometry x="0.075" relative="1" as="geometry">
+                        <mxPoint x="-3" y="-10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="D9rC3qTbJY6AdF8t-pWG-2" value="Github repo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="D9rC3qTbJY6AdF8t-pWG-4" value="API(exposed through ngrok)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8zmF9D3CeJAeMPqckKy7-2" value="OPTION 1: Webhook" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-1" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-2" target="aHRGKezO0jrnfhRXaDWR-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-2" value="Github" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-3" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-6" target="aHRGKezO0jrnfhRXaDWR-8">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="245" y="520"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-4" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-6" target="aHRGKezO0jrnfhRXaDWR-10">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="245" y="600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-5" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-6" target="aHRGKezO0jrnfhRXaDWR-12">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="245" y="680"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-6" value="Organisation(runner on organisation level for specific repo&#39;s)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="185" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-7" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-8" target="aHRGKezO0jrnfhRXaDWR-14">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="485" y="520"/>
+                            <mxPoint x="485" y="600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-8" value="Repo A" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="490" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-9" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-10" target="aHRGKezO0jrnfhRXaDWR-14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-10" value="Repo B" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-11" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-12" target="aHRGKezO0jrnfhRXaDWR-14">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="485" y="680"/>
+                            <mxPoint x="485" y="600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-12" value="Repo C" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="650" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-13" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-14" target="aHRGKezO0jrnfhRXaDWR-16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-14" value="Github actions(runs-on: self-hosted)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-15" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aHRGKezO0jrnfhRXaDWR-16" target="aHRGKezO0jrnfhRXaDWR-17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-16" value="Self-Hosted runner" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="685" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aHRGKezO0jrnfhRXaDWR-17" value="Local API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="685" y="680" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
