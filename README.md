@@ -37,6 +37,7 @@ Copy the .env.example and save as .env.local, change the github token to your pe
 2.2 Enable blocking in the repo(currently in progress)
 - IMPORTANT NOTE: for branch protection rules/rulesets enforcement being locked behind github teams(paying) the repo's where you want to apply the status blocking have to be public unless you want to pay for the team version($4 per user per repo) then it could be private
 
-- go to specific repository -> settings -> branches -> add (classic) rule
+- go to specific repository -> settings -> branches -> add classic branch protection rule
+(NOTE: hoe het momenteel werkt moet er eerst op z'n minst een keer worden gepusht met runnende applicatie zodat de security-scan status optie er tussen komt te staan)
 1. name: main
 2. Require status checks to pass before merging(check), source = "security-scan"
