@@ -1,10 +1,10 @@
 import shutil
 import time
 
-from scanner.utils import clone_repo
-from scanner.sbom import generate_sbom
-from scanner.vuln import scan_vulnerabilities
-from scanner.policy import evaluate_policy
+from backend.scanner.utils import clone_repo
+from backend.scanner.sbom import generate_sbom
+from backend.scanner.vuln import scan_vulnerabilities
+from backend.scanner.policy import evaluate_policy
 
 
 def run_scan(repo_url: str) -> dict:

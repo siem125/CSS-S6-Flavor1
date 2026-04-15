@@ -1,4 +1,4 @@
-from scanner.service import run_scan
+from backend.scanner.service import run_scan
 from rich import print
 
 

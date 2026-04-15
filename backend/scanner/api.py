@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-from scanner.service import run_scan
-from scanner.github import set_commit_status
+from backend.scanner.service import run_scan
+from backend.scanner.github import set_commit_status
 
 app = FastAPI()
 
