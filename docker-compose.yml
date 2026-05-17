@@ -1,8 +1,46 @@
 services:
-  scanner:
-    build: .
+  backend:
+    build: ./backend
+    container_name: security_scanner
     ports:
       - "8000:8000"
-    container_name: security_scanner
     env_file:
       - .env.local
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://scanner:scanner@postgres:5432/scannerdb
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3125:3000"
+    depends_on:
+      - backend
+    working_dir: /app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+  
+  postgres:
+    image: postgres:16
+    container_name: scanner_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: scanner
+      POSTGRES_PASSWORD: scanner
+      POSTGRES_DB: scannerdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

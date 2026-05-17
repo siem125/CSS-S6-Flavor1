@@ -21,4 +21,4 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run app
-CMD ["uvicorn", "scanner.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
