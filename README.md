@@ -21,7 +21,7 @@ ubuntu: https://ngrok.com/docs/guides/device-gateway/linux
 Copy the .env.example and save as .env.local, change the github token to your personal token(used for cloning repo's for sbom and vulnerability scanning)
 
 
-1.2 commands to run the project
+1.2 commands to run the project alongside each other(ngrok is for running the project through a proxy so that you can reach it publicly)
 - docker compose up --build
 - ngrok http 8000
 

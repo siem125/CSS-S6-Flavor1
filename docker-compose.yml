@@ -1,7 +1,7 @@
 services:
   backend:
     build: ./backend
-    container_name: security_scanner
+    container_name: scanner-back
     ports:
       - "8000:8000"
     env_file:
@@ -15,6 +15,7 @@ services:
 
   frontend:
     build: ./frontend
+    container_name: scanner-front
     ports:
       - "3125:3000"
     depends_on:
@@ -31,7 +32,7 @@ services:
   
   postgres:
     image: postgres:16
-    container_name: scanner_postgres
+    container_name: scanner-db
     restart: always
     environment:
       POSTGRES_USER: scanner
