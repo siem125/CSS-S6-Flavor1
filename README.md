@@ -41,4 +41,3 @@ Copy the .env.example and save as .env.local, change the github token to your pe
 (NOTE: hoe het momenteel werkt moet er eerst op z'n minst een keer worden gepusht met runnende applicatie zodat de security-scan status optie er tussen komt te staan)
 1. name: main
 2. Require status checks to pass before merging(check), source = "security-scan"
-
