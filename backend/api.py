@@ -50,30 +50,26 @@ def scan_repo(request: ScanRequest):
 
 @app.post("/webhook")
 async def github_webhook(request: Request):
-
-    payload = await request.json()
-
-    event = request.headers.get("X-GitHub-Event")
-
-    # ignore unrelated events
-    if event not in ["push", "pull_request"]:
-        return {"status": "ignored"}
-
-    repo_url = payload["repository"]["clone_url"]
-
-    repo_name = payload["repository"]["full_name"]
-
-    # extract SHA
-    if event == "push":
-        sha = payload.get("after")
-    else:
-        sha = payload["pull_request"]["head"]["sha"]
-
-    # print("Incoming event:", event)
-    # print("Repo:", repo_name)
-    # print("SHA:", sha)
+    db = SessionLocal()
 
     try:
+        payload = await request.json()
+
+        event = request.headers.get("X-GitHub-Event")
+
+        # ignore unrelated events
+        if event not in ["push", "pull_request"]:
+            return {"status": "ignored"}
+
+        repo_url = payload["repository"]["clone_url"]
+
+        repo_name = payload["repository"]["full_name"]
+
+        # extract SHA
+        if event == "push":
+            sha = payload.get("after")
+        else:
+            sha = payload["pull_request"]["head"]["sha"]
 
         # pending status
         set_commit_status(repo_name, sha, "pending")
@@ -89,22 +85,21 @@ async def github_webhook(request: Request):
         # update github commit status
         set_commit_status(repo_name, sha, result["status"])
 
+        return {
+            "event": event,
+            "repo": repo_url,
+            "sha": sha,
+            "result": result
+        }
+
     except Exception as e:
 
         print("SCAN ERROR:", e)
-
         set_commit_status(repo_name, sha, "failure")
-
-        return {
-            "error": str(e)
-        }
-
-    return {
-        "event": event,
-        "repo": repo_url,
-        "sha": sha,
-        "result": result
-    }
+        return {"error": str(e)}
+    
+    finally:
+        db.close()
 
 
 
