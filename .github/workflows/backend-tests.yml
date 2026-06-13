@@ -23,11 +23,11 @@ jobs:
       - name: Create env file
         run: cp .env.example .env.local
 
-      - name: Run all tests
-        run: docker compose run --rm backend ./test.sh
+    #   - name: Run all tests
+    #     run: docker compose run --rm backend ./test.sh
 
-    #   - name: Run unit tests
-    #     run: docker compose run --rm backend pytest tests/unit -v
+      - name: Run unit tests
+        run: docker compose run --rm backend pytest tests/unit -v
 
-    #   - name: Run integration tests
-    #     run: docker compose run --rm backend pytest tests/integration -v
+      - name: Run integration tests
+        run: docker compose run --rm backend pytest tests/integration -v
