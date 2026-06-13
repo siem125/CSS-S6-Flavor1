@@ -17,9 +17,29 @@ def run_scan(repo_url: str) -> dict:
 
         vulns = scan_vulnerabilities(sbom)
 
+        #print(vulns)
+
         policy_result = evaluate_policy(vulns)
 
         duration = round(time.time() - start, 2)
+
+        matches = vulns.get("matches", [])
+
+
+        #Side information(bugfix vulns returning count as 4 due to matches)
+        severity_counts = {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "low": 0,
+        }
+
+        for m in matches:
+            sev = m["vulnerability"].get("severity", "").lower()
+            if sev in severity_counts:
+                severity_counts[sev] += 1
+
+        #end matches count fix
 
         return {
             "repo_url": repo_url,
@@ -27,8 +47,9 @@ def run_scan(repo_url: str) -> dict:
             "block": policy_result["block"],
             "reason": policy_result.get("reason"),
             "duration": duration,
-            "vulnerability_count": len(vulns),
-            "vulnerabilities": vulns
+            "vulnerability_count": len(matches),
+            "severity_breakdown": severity_counts,
+            "vulnerabilities": vulns #TODO: Maybe switch to matches
         }
 
     finally:

@@ -12,7 +12,7 @@ def evaluate_policy(vuln_data: dict) -> dict:
         elif severity == "High":
             high.append(m)
 
-    block = len(critical) > 0 or len(high) > 5
+    block = len(critical) > 0 or len(high) > 0
 
     return {
         "block": block,
