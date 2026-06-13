@@ -38,6 +38,26 @@ export default function Home() {
     return scans.filter((s) => s.repo.name === selectedRepo);
   }, [scans, selectedRepo]);
 
+  const stats = useMemo(() => {
+    const repos = new Set(scans.map((s) => s.repo.id));
+
+    const failedScans = scans.filter((s) => s.block === true);
+    const successfulScans = scans.filter((s) => s.block === false);
+
+    const criticalVulns = scans.reduce((acc, scan) => {
+      // if vulnerability_count is TOTAL only, this is not perfect
+      // but we assume it's per scan and needs aggregation
+      return acc + (scan.vulnerability_count || 0);
+    }, 0);
+
+    return {
+      repositories: repos.size,
+      failedScans: failedScans.length,
+      successfulScans: successfulScans.length,
+      criticalVulns,
+    };
+  }, [scans]);
+
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
       <div className="max-w-6xl mx-auto">
@@ -56,22 +76,22 @@ export default function Home() {
         <div className="grid grid-cols-4 gap-4">
           <div className="bg-zinc-900 p-6 rounded-xl">
             <h2 className="text-sm text-zinc-400">Repositories</h2>
-            <p className="text-3xl font-bold">12</p>
+            <p className="text-3xl font-bold">{stats.repositories}</p>
           </div>
 
           <div className="bg-zinc-900 p-6 rounded-xl">
             <h2 className="text-sm text-zinc-400">Critical Vulnerabilities</h2>
-            <p className="text-3xl font-bold text-red-500">4</p>
+            <p className="text-3xl font-bold text-red-500">{stats.criticalVulns}</p>
           </div>
 
           <div className="bg-zinc-900 p-6 rounded-xl">
             <h2 className="text-sm text-zinc-400">Failed Scans</h2>
-            <p className="text-3xl font-bold text-yellow-500">2</p>
+            <p className="text-3xl font-bold text-yellow-500">{stats.failedScans}</p>
           </div>
 
           <div className="bg-zinc-900 p-6 rounded-xl">
             <h2 className="text-sm text-zinc-400">Successful Scans</h2>
-            <p className="text-3xl font-bold text-green-500">10</p>
+            <p className="text-3xl font-bold text-green-500">{stats.successfulScans}</p>
           </div>
         </div>
 
