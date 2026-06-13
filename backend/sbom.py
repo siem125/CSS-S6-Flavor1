@@ -1,5 +1,11 @@
 import subprocess
 import json
+import shutil
+
+if not shutil.which("syft"):
+    raise RuntimeError(
+        "Syft executable not found in PATH"
+    )
 
 def generate_sbom(path: str) -> dict:
     result = subprocess.run(

@@ -1,6 +1,12 @@
 import subprocess
 import json
 import tempfile
+import shutil
+
+if not shutil.which("grype"):
+    raise RuntimeError(
+        "Grype executable not found in PATH"
+    )
 
 def scan_vulnerabilities(sbom: dict) -> dict:
     with tempfile.NamedTemporaryFile(mode="w+", delete=False) as f:
