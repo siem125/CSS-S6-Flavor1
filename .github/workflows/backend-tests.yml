@@ -31,3 +31,6 @@ jobs:
 
       - name: Run integration tests
         run: docker compose run --rm backend pytest tests/integration -v
+
+      - name: Run coverage
+        run: docker compose run --rm backend pytest --cov-reports html

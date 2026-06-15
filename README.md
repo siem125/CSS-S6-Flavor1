@@ -2,7 +2,7 @@
 ## 1. Setup central control api
 1.1  Setup
 - Installation
-download ngrok: 
+download ngrok(optional): 
 Windows: microsoft store install ngrok en setup zodat linked github repo's de api kunnen bereiken
 ubuntu: https://ngrok.com/docs/guides/device-gateway/linux
 
