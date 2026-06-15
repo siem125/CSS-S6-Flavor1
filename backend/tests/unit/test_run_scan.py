@@ -2,15 +2,15 @@ from service import run_scan
 
 def test_run_scan(mocker):
 
-    mocker.patch(
-        "service.clone_repo",
-        return_value="/tmp/repo"
-    )
+    # mocker.patch(
+    #     "service.clone_repo",
+    #     return_value="/tmp/repo"
+    # )
 
-    mocker.patch(
-        "service.generate_sbom",
-        return_value={}
-    )
+    # mocker.patch(
+    #     "service.generate_sbom",
+    #     return_value={}
+    # )
 
     mocker.patch(
         "service.scan_vulnerabilities",
