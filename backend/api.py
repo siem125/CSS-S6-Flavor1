@@ -13,12 +13,25 @@ from dataclasses import dataclass
 from typing import Optional
 from urllib.parse import urlparse
 
+#CORS
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # create tables automatically
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+#CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "*",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ScanRequest(BaseModel):
     repo_url: str
