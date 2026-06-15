@@ -24,6 +24,8 @@ def run_scan(repo_url: str) -> dict:
         duration = round(time.time() - start, 2)
 
         matches = vulns.get("matches", [])
+        
+        print(vulns)
 
         #Side information(bugfix vulns returning count as 4 due to matches)
         severity_counts = {

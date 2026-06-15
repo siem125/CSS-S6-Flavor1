@@ -268,6 +268,8 @@ def get_repo(repo_id: int):
                         {
                             "id": v.id,
                             "package": v.package_name,
+                            "installed": v.installed_version,
+                            "fixed": v.fixed_version,
                             "severity": v.severity,
                             "description": v.description
                         }
